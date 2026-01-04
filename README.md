@@ -1,3 +1,37 @@
+# 💖 Birthday Surprise Website
+
+A beautiful, emotional storytelling website that unfolds chapter by chapter through clicks. A digital love letter for your special someone.
+
+## ✨ Features
+
+- 7 Emotional Pages with smooth transitions
+- Typewriter text animations
+- Photo memory slideshow
+- Background music support
+- Confetti celebration
+- Fully responsive design
+- Modern animations and effects
+
+## 🚀 Quick Start
+
+### Step 1: Download/Create the Folder Structure
+
+birthday-surprise/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+├── music/
+│   └── romantic.mp3
+└── images/
+├── memory1.jpg
+├── memory2.jpg
+├── memory3.jpg
+├── memory4.jpg
+├── memory5.jpg
+└── memory6.jpg
+
 ### Step 2: Add Your Content
 
 1. **Add Photos**: Place 6 photos in the `images/` folder named `memory1.jpg` through `memory6.jpg`
