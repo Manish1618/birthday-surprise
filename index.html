@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Queen 👑</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Entry Page -->
+    <div id="entry-page" class="page">
+        <div class="floating-hearts" id="hearts-container"></div>
+        <div class="entry-content fade-in">
+            <div class="crown-icon">👑</div>
+            <h1 class="main-title">For My Queen 👑</h1>
+            <button class="main-btn" onclick="startExperience()">
+                Click Me, Chiaaaaan... Gulumulu 💗
+            </button>
+            <div class="music-indicator">🎵 Music will start...</div>
+        </div>
+    </div>
+
+    <!-- Story/Quotes Page -->
+    <div id="story-page" class="page hidden">
+        <div class="story-content">
+            <div class="sparkle">✨</div>
+            <div class="quote-text">
+                "<span id="typed-quote"></span><span class="cursor">|</span>"
+            </div>
+            <button class="next-btn" onclick="nextQuote()">
+                <span id="quote-btn-text">Next</span> →
+            </button>
+            <div class="progress-dots" id="quote-dots"></div>
+        </div>
+    </div>
+
+    <!-- Promises Page -->
+    <div id="promises-page" class="page hidden">
+        <div class="promises-content">
+            <div class="sparkle">⭐</div>
+            <h2 class="page-title">My Promises to You ✨</h2>
+            <div id="promises-container"></div>
+            <button class="final-btn" onclick="goToMemories()" style="margin-top: 2rem;">
+                See Our Memories ❤️
+            </button>
+        </div>
+    </div>
+
+    <!-- Memories Page -->
+    <div id="memories-page" class="page hidden">
+        <div class="story-content">
+            <h2 class="page-title">Your Beautiful Moments at 18 ✨</h2>
+            <p class="subtitle">Each memory is a treasure</p>
+            <div class="memory-card">
+                <div class="memory-image" id="memory-image">
+                    <!-- Image will be inserted by JavaScript -->
+                </div>
+                <p class="memory-caption" id="memory-caption"></p>
+            </div>
+            <button class="next-btn" onclick="nextMemory()">
+                <span id="memory-btn-text">Next Memory</span> →
+            </button>
+            <div class="progress-dots" id="memory-dots"></div>
+        </div>
+    </div>
+
+    <!-- Gratitude Page -->
+    <div id="gratitude-page" class="page hidden">
+        <div class="gratitude-content">
+            <div style="text-align: center;">
+                <div class="gift-icon">🎁</div>
+                <h2 class="page-title">Thank You For Being You 🌟</h2>
+            </div>
+            <div class="gratitude-card">
+                <p class="gratitude-text">Thank you for every laugh we've shared 😄</p>
+                <div class="divider"></div>
+                <p class="gratitude-text">Thank you for being patient with me 💕</p>
+                <div class="divider"></div>
+                <p class="gratitude-text">Thank you for making life beautiful ✨</p>
+                <div class="divider"></div>
+                <p class="gratitude-text">Thank you for just being you, my queen 👑</p>
+            </div>
+            <button class="final-btn" onclick="goToNewBegin()">
+                What's Next? ✨
+            </button>
+        </div>
+    </div>
+
+    <!-- New Beginning Page -->
+    <div id="newbegin-page" class="page hidden">
+        <div class="newbegin-content">
+            <div class="sparkle">✨</div>
+            <h2 class="big-title">18 was beautiful...</h2>
+            <div class="horizontal-divider"></div>
+            <h2 class="big-title">But 19 is a new beginning.</h2>
+            <p class="subtitle">Always be happy, my queen. 👑</p>
+            <button class="final-btn" onclick="goToFinal()">
+                Step into 19 ❤️ →
+            </button>
+        </div>
+    </div>
+
+    <!-- Final Birthday Page -->
+    <div id="final-page" class="page hidden">
+        <div id="confetti-container"></div>
+        <div class="final-content">
+            <div class="celebration-emoji">🎉</div>
+            <h1 class="birthday-title">HAPPY BIRTHDAY</h1>
+            <h2 class="babes-title">BABES 💖</h2>
+            <div id="wishes-container">
+                <p class="wish-text">May every dream of yours come true. ✨</p>
+                <p class="wish-text">I'll always be proud of you. 🌟</p>
+                <p class="wish-text">Forever yours. 💕</p>
+            </div>
+            <div class="final-heart">❤️</div>
+            <button class="replay-btn" onclick="replayExperience()">
+                Experience Again 🔄
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
