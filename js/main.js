@@ -2,11 +2,13 @@
 
 // Quotes for the story page
 const quotes = [
-    "You didn't just enter my life... you changed it.",
-    "Every smile of yours feels like home.",
-    "This is not just a birthday surprise. It's my heart.",
-    "With you, every moment becomes a memory worth keeping.",
-    "You are my reason to believe in beautiful things."
+    "Hiii Chuaaaaa! Knta Acha.",
+    "Tumar lagi tumar chuaa gute jinis te baneiche chala dekhma.",
+    "Mor chua ke akhirkar 19yrs heigala so congrants lipsssss.",
+    "Tume asla dinu mor life bahut bhal heijaiche .",
+    "Tume hi mor life ra gute good luck aaa but ketekete bele jhagda hesi thats happen tumke bi hurts hesi mate bi hurt hesi .",
+    "Sabu jhagda lagi mor adu sorry jaan aau thanks mate ete din sahebar lagi and all the best mate agdi bi saheba .",
+    "Aau amke ie relationship budha hebar tak nebar ache so all the best dear Gulumulu ! ."
 ];
 
 // Memory photos and captions
@@ -31,6 +33,7 @@ const promises = [
 
 let currentQuote = 0;
 let currentMemory = 0;
+let typingTimer = null; // For typewriter effect
 
 // ========== MUSIC MANAGEMENT ==========
 
@@ -80,6 +83,9 @@ function switchMusic(pageId) {
         }
     }
 }
+
+// Generate floating hearts for entry page
+function generateHearts() {
     const container = document.getElementById('hearts-container');
     for (let i = 0; i < 20; i++) {
         const heart = document.createElement('div');
@@ -109,17 +115,24 @@ function startExperience() {
 
 // Typewriter effect for quotes
 function typeQuote() {
+    // Clear any existing timer
+    if (typingTimer) {
+        clearInterval(typingTimer);
+        typingTimer = null;
+    }
+    
     const quoteElement = document.getElementById('typed-quote');
     const text = quotes[currentQuote];
     let index = 0;
     quoteElement.textContent = '';
 
-    const timer = setInterval(() => {
+    typingTimer = setInterval(() => {
         if (index < text.length) {
             quoteElement.textContent += text[index];
             index++;
         } else {
-            clearInterval(timer);
+            clearInterval(typingTimer);
+            typingTimer = null;
         }
     }, 50);
 }
@@ -209,6 +222,12 @@ function updateMemory() {
     const img = new Image();
     img.onload = function() {
         imageContainer.style.backgroundImage = `url('${memory.image}')`;
+        // Adjust background-size for specific images
+        if ([0, 2, 5].includes(currentMemory)) { // memory1, memory3, memory6
+            imageContainer.style.backgroundSize = 'contain';
+        } else {
+            imageContainer.style.backgroundSize = 'cover';
+        }
         imageContainer.innerHTML = '';
     };
     img.onerror = function() {
@@ -314,6 +333,12 @@ function showWishes() {
 
 // Replay the entire experience
 function replayExperience() {
+    // Clear any ongoing typing
+    if (typingTimer) {
+        clearInterval(typingTimer);
+        typingTimer = null;
+    }
+    
     currentQuote = 0;
     currentMemory = 0;
     
