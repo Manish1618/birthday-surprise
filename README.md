@@ -1,7 +1,7 @@
 ### Step 2: Add Your Content
 
 1. **Add Photos**: Place 6 photos in the `images/` folder named `memory1.jpg` through `memory6.jpg`
-2. **Add Music**: Place a romantic song in the `music/` folder as `romantic.mp3`
+2. **Add Music**: Place 3 romantic songs in the `music/` folder as `romantic1.mp3`, `romantic2.mp3`, and `romantic3.mp3`
 3. **Customize Text**: Edit the `js/main.js` file to change quotes, captions, and promises
 
 ### Step 3: Customize Messages
@@ -70,9 +70,14 @@ Adjust animation speeds in `css/style.css`:
 
 ## 🎵 Music Recommendations
 
-Choose a romantic instrumental or soft song:
-- Keep it under 5MB for faster loading
-- MP3 format works best
+Choose 3 romantic instrumental or soft songs for different sections:
+- **romantic1.mp3**: For the first 3 sections (entry, story, promises) - gentle and romantic
+- **romantic2.mp3**: For the next 3 sections (memories, gratitude, new beginning) - emotional and heartfelt  
+- **romantic3.mp3**: For the final birthday section - celebratory and joyful
+
+Each track should be:
+- Under 5MB for faster loading
+- MP3 format
 - Instrumental music is less distracting
 
 **Where to find music:**
@@ -101,7 +106,8 @@ The website is fully responsive and works on:
 ### Music Not Playing
 - Some browsers block autoplay until user interaction
 - The music starts after the first button click
-- Make sure file is named `romantic.mp3` in `music/` folder
+- Make sure files are named `romantic1.mp3`, `romantic2.mp3`, and `romantic3.mp3` in `music/` folder
+- Music automatically switches between sections
 
 ### Images Not Showing
 - Check file names match exactly: `memory1.jpg`, `memory2.jpg`, etc.

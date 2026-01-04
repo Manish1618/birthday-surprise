@@ -32,6 +32,22 @@ const promises = [
 let currentQuote = 0;
 let currentMemory = 0;
 
+// ========== MUSIC MANAGEMENT ==========
+
+// Music tracks for different sections
+const musicTracks = {
+    'entry-page': 'bgMusic1',
+    'story-page': 'bgMusic1', 
+    'promises-page': 'bgMusic1',
+    'memories-page': 'bgMusic2',
+    'gratitude-page': 'bgMusic2',
+    'newbegin-page': 'bgMusic2',
+    'final-page': 'bgMusic3'
+};
+
+// Current playing music
+let currentMusic = null;
+
 // ========== INITIALIZATION ==========
 
 // Initialize on page load
@@ -39,10 +55,31 @@ window.addEventListener('DOMContentLoaded', () => {
     generateHearts();
 });
 
-// ========== ENTRY PAGE FUNCTIONS ==========
+// ========== MUSIC FUNCTIONS ==========
 
-// Generate floating hearts animation
-function generateHearts() {
+// Switch background music based on current page
+function switchMusic(pageId) {
+    const newTrackId = musicTracks[pageId];
+    if (!newTrackId) return;
+    
+    // Stop current music if playing
+    if (currentMusic && currentMusic !== newTrackId) {
+        const currentAudio = document.getElementById(currentMusic);
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+    }
+    
+    // Play new music if different
+    if (currentMusic !== newTrackId) {
+        const newAudio = document.getElementById(newTrackId);
+        if (newAudio) {
+            newAudio.play().catch(e => console.log('Music autoplay prevented by browser'));
+            currentMusic = newTrackId;
+        }
+    }
+}
     const container = document.getElementById('hearts-container');
     for (let i = 0; i < 20; i++) {
         const heart = document.createElement('div');
@@ -59,8 +96,7 @@ function generateHearts() {
 
 // Start the experience
 function startExperience() {
-    const music = document.getElementById('bgMusic');
-    music.play().catch(e => console.log('Music autoplay prevented by browser'));
+    switchMusic('entry-page');
     
     transitionToPage('entry-page', 'story-page', 'slide-up');
     setTimeout(() => {
@@ -306,6 +342,9 @@ function transitionToPage(fromId, toId, animation) {
         // Show and animate new page
         toPage.classList.remove('hidden');
         toPage.classList.add(animation);
+        
+        // Switch music for the new page
+        switchMusic(toId);
         
         // Remove animation class after animation completes
         setTimeout(() => {
